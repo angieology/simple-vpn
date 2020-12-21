@@ -1,6 +1,6 @@
 # Simple VPN
 
-A simple VPN sample built with node streams. Example provided by James Halliday.
+A simple VPN sample built with node streams. Example is from samples provided by James Halliday in his Node streams course. Read more here [about streams](https://github.com/substack/stream-handbook/)
 
 ## Streams in Node
 
