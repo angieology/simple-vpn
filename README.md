@@ -37,6 +37,23 @@ A VPN is an encrypted proxy. For our example we will set up three processes:
 2. The VPN (a proxy that goes to the echo server, but is encrypted before and after the request)
 3. The Client (the client we use to connect to the VPN, so that in essence, a VPN is both the vpn client and server in combo)
 
+#### Step 1: The Echo server
+A duplex uses the node 'archetype' this way:
+```
+source.pipe(transform).pipe(source)
+```
+
+So the source and destination are the same. This will create separate processes, so it won't create an infinite loop. It will however, allow one connection to be both readable and writeable at the same time. We will use this to send text to the connection, and get a response back. It will be the same message we send, hence the echo.
+
+#### Step 2: The VPN Server
+Using a crypto module we can encrypt our request with a password, so that it can't be intercepted by anyone without the password. (Only hypothetically, because this encryption is not strong enough to use in real life.) This will be set up exactly the same as the duplex, as a both readable and writable stream, except now we add a layer of transformation, wrapping the start and end of the process with encryption.
+
+#### Step 3: The VPN Client
+This simply completes what the VPN server is set up to be. We want console input and output to be captured, then we want to encrypt the input, send it to the VPN server (which will decrypt first). When server sends back the response, it will encrypt, and the client decrypts it before displaying it on the terminal.
+
+![alt text](simple VPN.png)
+
+
 ## Setup
 
 Start the echo server in a terminal pane.
