@@ -51,7 +51,7 @@ Using a crypto module we can encrypt our request with a password, so that it can
 #### Step 3: The VPN Client
 This simply completes what the VPN server is set up to be. We want console input and output to be captured, then we want to encrypt the input, send it to the VPN server (which will decrypt first). When server sends back the response, it will encrypt, and the client decrypts it before displaying it on the terminal.
 
-![alt text](simple VPN.png)
+![alt text](diagram-vpn.png)
 
 
 ## Setup
