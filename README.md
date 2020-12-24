@@ -4,7 +4,7 @@ A simple VPN sample built with node streams. Example is from samples provided by
 
 ## Streams in Node
 
-To understand what this project is trying to express, first let's understand Node and streams.
+To understand the goals of the project, first it's important to know node's streams.
 
 Imagine what a node server really does: a server is really just a connection point between different computing centers. It's like the main intersection between processes that want to write and retrieve to files, receive and processes continuous networking requests, serve database find results, and so much more. A service can do a multitude of things, from authentication, to uploading video files, but at it's heart it's all about being the point of communication between these. The famous analogy is that of a garden hose, and data is the continuous flow of water from one place to another.
 
@@ -13,6 +13,8 @@ What makes the internet so powerful is that it's always on, like a stream or riv
 So when node makes use of streams, it handles the entire request as if it's dealing with exactly that - a long movie broken up into 5-min clips. You'd have a sequence of videos to process, one after the other, until it's finally done uploading and the end event is emitted. Think of it this way, a computer thinks faster than humans, so when you (a human) tries to code and think like a machine, imagine that time is slowed down for them, in order for the human and the machine to communicate. When you're coding a video upload, think about how that looks like in slow motion.
 
 Generalizing to all streams, a video upload is a 'write' action, whereas a download is a 'read' action. All streams are either of these, or even both. When you can both read and write, you have a duplex stream -- like a telephone.
+
+`streams` are one of Node's core modules, inheriting from the `EventEmitter` that allows for events like 'end' or 'error', and to emit custom events. In turn, `http` and `fs` inherit from `streams` API.
 
 The archetype of all node streams follows this pattern:
 
