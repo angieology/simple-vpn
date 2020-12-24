@@ -81,4 +81,4 @@ In order for the encryption to work, it waits for the queue of messages to 'fill
 
 
  
-**note: this is for learning purposes only, it is not secure enough to be used as a real VPN**
+**note: this project is for demonstration purposes only, example is not secure enough to be used as a real VPN**
